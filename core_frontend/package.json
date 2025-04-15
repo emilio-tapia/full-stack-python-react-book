@@ -1,0 +1,35 @@
+{
+  "name": "comtelec-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/clasp": "^2.4.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "cssnano": "^7.0.2",
+    "postcss-atroot": "^0.2.4",
+    "postcss-browser-reporter": "^0.7.0",
+    "postcss-class-name-shortener": "^2.0.0",
+    "postcss-for": "^2.1.1",
+    "postcss-nested": "^6.0.1",
+    "postcss-preset-env": "^9.5.14",
+    "postcss-reporter": "^7.1.0",
+    "postcss-sort-media-queries": "^5.2.0",
+    "postcss-spring-easing": "^1.0.2",
+    "postcss-utilities": "^0.8.4",
+    "postcss-will-change": "^4.0.1",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "tailwind-merge": "^2.3.0"
+  }
+}

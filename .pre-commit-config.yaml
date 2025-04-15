@@ -1,0 +1,46 @@
+repos:
+  # Python linters & formatters
+  - repo: https://github.com/psf/black
+    rev: 24.3.0 # Use the latest stable version
+    hooks:
+      - id: black
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 7.0.0
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/adamchainz/django-upgrade
+    rev: 1.16.0
+    hooks:
+      - id: django-upgrade
+
+  # JavaScript, TypeScript, React linters & formatters
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v8.53.0
+    hooks:
+      - id: eslint
+        files: \.(js|jsx|ts|tsx)$
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.2.5
+    hooks:
+      - id: prettier
+        files: \.(js|jsx|ts|tsx|json|yml|yaml|md)$
+
+  # JSON formatting
+  - repo: https://github.com/pre-commit/mirrors-jsonlint
+    rev: v1.6.0
+    hooks:
+      - id: jsonlint
+
+  # YAML validation
+  - repo: https://github.com/pre-commit/mirrors-yamllint
+    rev: v1.32.0
+    hooks:
+      - id: yamllint

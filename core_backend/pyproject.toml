@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "core-backend"
+version = "0.1.0"
+description = "A Django-based backend API"
+authors = [{ name = "Emilio Tapia", email = "emilio.tapia@comtelec.com" }]
+
+dependencies = [
+    "django",
+    "djangorestframework",
+    "django-cors-headers", 
+    "black", 
+    "isort", 
+    "flake8"
+]
+
+[tool.setuptools]
+py-modules = ["manage"]
+packages = ["core_backend"]
+package-dir = {"" = "."}
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
