@@ -21,6 +21,7 @@
       in {
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
+
             # Python environment
             pythonEnv
 
@@ -66,7 +67,7 @@
             # Create Django project if it doesn't exist
             if [ ! -f "core_backend/manage.py" ]; then
               echo "🎯 Creating Django project structure..."
-              cd core_backend && django-admin startproject core_backend . && cd ..
+              cd core_backend && django-admin startproject api_root . && cd ..
             fi
 
             # Install Python dependencies from pyproject.toml if not already installed

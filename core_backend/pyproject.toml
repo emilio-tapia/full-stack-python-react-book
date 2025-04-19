@@ -10,11 +10,15 @@ authors = [{ name = "Emilio Tapia", email = "emilio.tapia@comtelec.com" }]
 
 dependencies = [
     "django",
-    "djangorestframework",
     "django-cors-headers", 
+    "djangorestframework",
+    "djangorestframework-simplejwt"
+    "psycopg2_binary",
+    "django-filter",
     "black", 
     "isort", 
-    "flake8"
+    "flake8",
+    "pillow"
 ]
 
 [tool.setuptools]

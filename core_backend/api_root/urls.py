@@ -1,5 +1,5 @@
 """
-URL configuration for core_backend project.
+URL configuration for api_root project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -14,9 +14,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+    path('api/', include(('core.routers', 'core'), namespace="core-api")),
 ]
+
+# xh post :8000/api/auth/register/ usermame=peterpan first_name=Pedro last_name=Pansito password=12345 email=peterpan@comtelec.com
