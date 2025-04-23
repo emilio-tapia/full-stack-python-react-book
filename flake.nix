@@ -16,6 +16,8 @@
         pkgs = import nixpkgs { inherit system; };
         pythonEnv = pkgs.python3.withPackages (ps: with ps; [
           virtualenv
+          # pytest
+          # # pytest-django
           pip
         ]);
       in {
@@ -70,11 +72,14 @@
               cd core_backend && django-admin startproject api_root . && cd ..
             fi
 
-            # Install Python dependencies from pyproject.toml if not already installed
-            if ! pip show core-backend >/dev/null 2>&1; then
-              echo "📦 Installing Python dependencies..."
+            # # Install Python dependencies from pyproject.toml if not already installed
+            # if ! pip show core-backend >/dev/null 2>&1; then
+            #   echo "📦 Installing Python dependencies..."
+            #   pip install -e core_backend
+            # fi
+
+            echo "📦 Installing Python dependencies..."
               pip install -e core_backend
-            fi
             
             echo ""
             echo "📝 Django (backend): cd core_backend"

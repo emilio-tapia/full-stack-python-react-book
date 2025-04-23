@@ -9,12 +9,14 @@ description = "A Django-based backend API"
 authors = [{ name = "Emilio Tapia", email = "emilio.tapia@comtelec.com" }]
 
 dependencies = [
+    "pytest-django",
     "django",
     "django-cors-headers", 
     "djangorestframework",
-    "djangorestframework-simplejwt"
-    "psycopg2_binary",
+    "djangorestframework-simplejwt",
     "django-filter",
+    "drf-nested-routers",
+    "psycopg2_binary",
     "black", 
     "isort", 
     "flake8",
@@ -23,7 +25,7 @@ dependencies = [
 
 [tool.setuptools]
 py-modules = ["manage"]
-packages = ["core_backend"]
+packages = ["api_root", "core"]
 package-dir = {"" = "."}
 
 [tool.black]
@@ -34,4 +36,8 @@ target-version = ['py313']
 profile = "black"
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+DJANGO_SETTINGS_MODULE = "api_root.settings"
+python_files=["tests.py", "test_*.py", "*_tests.py"]
+pythonpath=["."]
+log_cli = true
+addopts = "--debug"
