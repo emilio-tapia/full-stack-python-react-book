@@ -21,9 +21,7 @@ class CommentViewSet(AbstractViewSet):
         post_pk = self.kwargs['post_pk']
         if post_pk is None:
             return Http404
-        queryset = Comment.objects.filter(post__public_id=post_pk)
-
-        return queryset
+        return Comment.objects.filter(post__public_id=post_pk)
 
     def get_object(self):
         obj = Comment.objects.get_object_by_public_id(self.kwargs['pk'])
@@ -37,5 +35,3 @@ class CommentViewSet(AbstractViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    
-    

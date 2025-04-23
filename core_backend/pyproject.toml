@@ -10,6 +10,7 @@ authors = [{ name = "Emilio Tapia", email = "emilio.tapia@comtelec.com" }]
 
 dependencies = [
     "pytest-django",
+    "pytest-order",
     "django",
     "django-cors-headers", 
     "djangorestframework",
@@ -37,7 +38,7 @@ profile = "black"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "api_root.settings"
-python_files=["tests.py", "test_*.py", "*_tests.py"]
+python_files=["test_*.py", "tests.py", "*_tests.py"]
 pythonpath=["."]
 log_cli = true
 addopts = "--debug"
