@@ -1,29 +1,33 @@
-import { useState } from 'react';
-import './styles/App.css';
+import React from 'react';
 import { Route, Routes } from 'react-router';
-import { Home } from './pages/Home';
 import ProtectedRoute from './routes/ProtectedRoute';
+import Home from './pages/Home';
 import Registration from './pages/Registration';
 import Login from './pages/Login';
+import SinglePost from './components/posts/SinglePost';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/login/" element={<Login />} />
-        <Route path="/register/" element={<Registration />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/post/:postId/"
+        element={
+          <ProtectedRoute>
+            <SinglePost />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/login/" element={<Login />} />
+      <Route path="/register/" element={<Registration />} />
+    </Routes>
   );
 }
 
