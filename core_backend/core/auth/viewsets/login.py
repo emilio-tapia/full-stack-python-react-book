@@ -5,10 +5,11 @@ from rest_framework import status
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from core.auth.serializers import LoginSerializer
 
+
 class LoginViewSet(ViewSet):
     permission_classes = (AllowAny,)
     serializer_class = LoginSerializer
-    http_method_names = ['post']
+    http_method_names = ["post"]
 
     def create(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)

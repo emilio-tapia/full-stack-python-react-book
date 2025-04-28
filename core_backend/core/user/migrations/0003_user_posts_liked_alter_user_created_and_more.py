@@ -6,24 +6,24 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core_post', '0001_initial'),
-        ('core_user', '0002_user_avatar_user_bio_alter_user_updated'),
+        ("core_post", "0001_initial"),
+        ("core_user", "0002_user_avatar_user_bio_alter_user_updated"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='posts_liked',
-            field=models.ManyToManyField(related_name='liked_by', to='core_post.post'),
+            model_name="user",
+            name="posts_liked",
+            field=models.ManyToManyField(related_name="liked_by", to="core_post.post"),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='created',
+            model_name="user",
+            name="created",
             field=models.DateTimeField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='updated',
+            model_name="user",
+            name="updated",
             field=models.DateTimeField(auto_now=True),
         ),
     ]

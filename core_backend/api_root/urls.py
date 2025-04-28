@@ -20,7 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('api/', include(('core.routers', 'core'), namespace="core-api")),
+    path("api/", include(("core.routers", "core"), namespace="core-api")),
 ]
 
 # xh post :8000/api/auth/register/ usermame=peterpan first_name=Pedro last_name=Pansito password=12345 email=peterpan@comtelec.com

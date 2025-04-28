@@ -10,7 +10,7 @@ from core.auth.permissions import UserPermission
 
 
 class CommentViewSet(AbstractViewSet):
-    http_method_names = ('post', 'get', 'put', 'delete')
+    http_method_names = ("post", "get", "put", "delete")
     permission_classes = (UserPermission,)
     serializer_class = CommentSerializer
 
@@ -18,13 +18,13 @@ class CommentViewSet(AbstractViewSet):
         if self.request.user.is_superuser:
             return Comment.objects.all()
 
-        post_pk = self.kwargs['post_pk']
+        post_pk = self.kwargs["post_pk"]
         if post_pk is None:
             return Http404
         return Comment.objects.filter(post__public_id=post_pk)
 
     def get_object(self):
-        obj = Comment.objects.get_object_by_public_id(self.kwargs['pk'])
+        obj = Comment.objects.get_object_by_public_id(self.kwargs["pk"])
 
         self.check_object_permissions(self.request, obj)
 

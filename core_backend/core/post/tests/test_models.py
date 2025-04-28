@@ -3,6 +3,7 @@ import pytest
 from core.fixtures.user import user
 from core.post.models import Post
 
+
 @pytest.mark.order(3)
 @pytest.mark.django_db
 def test_create_post(user):

@@ -9,7 +9,7 @@ from core.auth.permissions import UserPermission
 
 
 class PostViewSet(AbstractViewSet):
-    http_method_names = ('post', 'get', 'put', 'delete')
+    http_method_names = ("post", "get", "put", "delete")
     permission_classes = (UserPermission,)
     serializer_class = PostSerializer
 
@@ -17,7 +17,7 @@ class PostViewSet(AbstractViewSet):
         return Post.objects.all()
 
     def get_object(self):
-        obj = Post.objects.get_object_by_public_id(self.kwargs['pk'])
+        obj = Post.objects.get_object_by_public_id(self.kwargs["pk"])
 
         self.check_object_permissions(self.request, obj)
 
@@ -29,7 +29,7 @@ class PostViewSet(AbstractViewSet):
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    @action(methods=['post'], detail=True)
+    @action(methods=["post"], detail=True)
     def like(self, request, *args, **kwargs):
         post = self.get_object()
         user = self.request.user
@@ -40,7 +40,7 @@ class PostViewSet(AbstractViewSet):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    @action(methods=['post'], detail=True)
+    @action(methods=["post"], detail=True)
     def remove_like(self, request, *args, **kwargs):
         post = self.get_object()
         user = self.request.user
