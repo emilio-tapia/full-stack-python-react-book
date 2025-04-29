@@ -3,7 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
+    "types": ["@vitest/browser/providers/playwright"],
+    "declaration": true,
+    "esModuleInterop": true
   },
   "files": [],
   "references": [

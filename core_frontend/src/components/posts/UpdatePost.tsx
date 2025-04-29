@@ -45,18 +45,26 @@ function UpdatePost(props) {
 
   return (
     <>
-      <Dropdown.Item onClick={handleShow}>Modify</Dropdown.Item>
+      <Dropdown.Item data-testid="show-modal-form" onClick={handleShow}>
+        Modify
+      </Dropdown.Item>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton className="border-0">
           <Modal.Title>Update Post</Modal.Title>
         </Modal.Header>
         <Modal.Body className="border-0">
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+            data-testid="update-post-form"
+          >
             <Form.Group className="mb-3">
               <Form.Control
                 name="body"
                 value={form.body}
+                data-testid="post-body-field"
                 onChange={(e) => setForm({ ...form, body: e.target.value })}
                 as="textarea"
                 rows={3}
@@ -65,18 +73,15 @@ function UpdatePost(props) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button
+            data-testid="update-post-submit"
+            variant="primary"
+            onClick={handleSubmit}
+          >
             Modify
           </Button>
         </Modal.Footer>
       </Modal>
-      <Toaster
-        title="Success!"
-        message="Post updated 🚀"
-        type="success"
-        showToast={showToast}
-        onClose={() => setShowToast(false)}
-      />
     </>
   );
 }
