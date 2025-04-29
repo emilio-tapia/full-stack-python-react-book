@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Layout from '../Layout';
+import Layout from '../components/Layout';
 import { Row, Col } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useSWR from 'swr';
-import { fetcher } from '../../helpers/axios';
-import Post from './Post';
-import CreateComment from '../comments/CreateComment';
-import Comment from '../comments/Comment';
+import { fetcher } from '../helpers/axios';
+import Post from '../components/posts/Post';
+import CreateComment from '../components/comments/CreateComment';
+import Comment from '../components/comments/Comment';
 
 function SinglePost() {
   const { postId } = useParams();

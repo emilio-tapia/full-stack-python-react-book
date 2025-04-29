@@ -1,13 +1,12 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { Row, Col, Image } from 'react-bootstrap';
-import { randomAvatar } from '../utils/ui.utils';
 import useSWR from 'swr';
 import { fetcher } from '../helpers/axios';
 import { getUser } from '../hooks/user.actions';
 import Post from '../components/posts/Post';
 import CreatePost from '../components/posts/CreatePost';
-import Profile from '../components/Profile';
+import ProfileCard from '../components/profile/ProfileCard';
 
 function Home() {
   const posts = useSWR('/post/', fetcher, {
@@ -28,7 +27,7 @@ function Home() {
           <Row className="border rounded  align-items-center">
             <Col className="flex-shrink-1">
               <Image
-                src={randomAvatar()}
+                src={user.avatar}
                 roundedCircle
                 width={52}
                 height={52}
@@ -50,7 +49,7 @@ function Home() {
           <div className="d-flex flex-column">
             {profiles.data &&
               profiles.data.results.map((profile, index) => (
-                <Profile key={index} user={profile} />
+                <ProfileCard key={index} user={profile} />
               ))}
           </div>
         </Col>
